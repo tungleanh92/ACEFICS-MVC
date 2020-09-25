@@ -1,0 +1,37 @@
+extends ./layout
+
+block append content
+  main#main-contact
+    .pageName
+      p.page LIEN HE
+      p.location Trang chu / LiEn hE
+    section.section-contact
+      .bs-container
+        .bs-row
+          .bs-col
+            .module.module-contact
+              .module-content
+                .bs-row.row-lg-15.row-center
+                  .bs-col.lg-33-15
+                    p.info.address Tầng 2, Lô 8 +15 NV, Khu HH1 Ô16 Tây Hồ Tây, P.Xuân La, Q.Tây Hồ, TP.Hà Nội.
+                  .bs-col.lg-33-15
+                    p.info.phone 024.6666.7069
+                  .bs-col.lg-33-15
+                    p.info.mail vanphongace5.ace@gmail.com
+    section.section-mail
+      .bs-row
+        .bs-col
+          .module.module-mail
+            .module-content
+              div(style='width: 100%')
+                iframe(width='100%', height='455', frameborder='0', scrolling='no', marginheight='0', marginwidth='0', src='https://maps.google.com/maps?width=100%25&height=455&hl=en&q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&t=&z=14&ie=UTF8&iwloc=B&output=embed')
+              .infoProvide
+                h2.title LIEN HE
+                p Cung cấp thông tin để chúng tôi có thể hỗ trợ bạn
+                .wrapper
+                  input.name(type='text', placeholder='Họ và tên')
+                  input.group(type='text', placeholder='Tổ chức')
+                  input.email(type='email', placeholder='Email')
+                  input.phone(type='phone', placeholder='Số điện thoại')
+                  textarea.content(placeholder='Nội dung ...')
+                  button.sent GUI TIN

@@ -1,0 +1,269 @@
+.pageName {
+    text-align: center;
+    padding-top: 45px;
+    padding-bottom: 40px;
+    background: #eff3fa;
+  }
+  .pageName .page {
+    font-size: 25px;
+    line-height: 33px;
+    color: #1d407d;
+    font-weight: 700;
+    font-family: "Open Sans";
+  }
+  .pageName .location {
+    font-size: 15px;
+    line-height: 12px;
+    color: #1d407d;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
+  .section-contact {
+    padding-top: 60px;
+  }
+  .section-contact .module .module-content p {
+    position: relative;
+  }
+  .section-contact .module .module-content .info {
+    margin-left: 100px;
+  }
+  .section-contact .module .module-content .address {
+    width: 252px;
+    height: 105px;
+    font-size: 15px;
+    line-height: 31px;
+    color: #002d52;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
+  .section-contact .module .module-content .address:before {
+    position: absolute;
+    background-image: url(./../../images/contactpage/location.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 94px;
+    height: 94px;
+    content: '';
+    left: -109px;
+    top: 0px;
+  }
+  .section-contact .module .module-content .phone {
+    position: relative;
+    font-size: 25px;
+    line-height: 90px;
+    height: 90px;
+    color: #002d52;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
+  .section-contact .module .module-content .phone:before {
+    position: absolute;
+    background-image: url(./../../images/contactpage/phone.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    width: 94px;
+    height: 94px;
+    left: -109px;
+    top: 0px;
+  }
+  .section-contact .module .module-content .mail {
+    position: relative;
+    font-size: 17px;
+    line-height: 90px;
+    height: 90px;
+    color: #002d52;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
+  .section-contact .module .module-content .mail:before {
+    position: absolute;
+    content: '';
+    background-image: url(./../../images/contactpage/mail.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 94px;
+    height: 94px;
+    left: -109px;
+    top: 0px;
+  }
+  .section-mail {
+    overflow: hidden;
+  }
+  .section-mail .module .module-content {
+    padding-top: 40px;
+    position: relative;
+  }
+  .section-mail .module .module-content .infoProvide:before {
+    content: "";
+    -webkit-clip-path: polygon(100% 0, 48% 100%, 100% 100%);
+    clip-path: polygon(100% 0, 2% 100%, 100% 100%);
+    position: absolute;
+    left: -187px;
+    top: 0px;
+    height: 455px;
+    width: 188px;
+    background: #1bcd8d;
+  }
+  .section-mail .module .module-content .infoProvide {
+    position: absolute;
+    width: 45%;
+    background: #1bcd8d;
+    top: 40px;
+    right: 0px;
+    padding-left: 33px;
+    padding-top: 38px;
+    height: 455px;
+  }
+  .section-mail .module .module-content .infoProvide h2 {
+    margin-top: 37px;
+    margin-top: 0px;
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Open Sans";
+  }
+  .section-mail .module .module-content .infoProvide p {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
+  .section-mail .module .module-content .infoProvide .wrapper {
+    max-width: 450px;
+    margin-top: 25px;
+    margin-right: auto;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper input {
+    width: 220px;
+    margin-bottom: 15px;
+    background: #56d8ab;
+    border-radius: 3px;
+    outline: none;
+    border: unset;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper input::placeholder {
+    color: white;
+    font-style: normal;
+    padding-left: 10px;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper textarea {
+    height: 125px;
+    background: #56d8ab;
+    outline: none;
+    border: unset;
+    margin-bottom: 8px;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper textarea::placeholder {
+    color: white;
+    font-style: normal;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper .name {
+    margin-right: 5px;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper .email {
+    margin-right: 5px;
+  }
+  .section-mail .module .module-content .infoProvide .wrapper .sent {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #2a344c;
+    font-weight: 400;
+    font-family: "Open Sans";
+  }
+  @media only screen and (max-width: 1199px) {
+    .section-contact .module .module-content .info {
+      margin: 0 auto;
+      width: 252px;
+      margin-bottom: 20px;
+    }
+    .section-mail .module .module-content .infoProvide .wrapper {
+      width: 220px;
+    }
+    .section-mail .module .module-content .infoProvide .wrapper textarea {
+      height: 35px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .section-mail .module .module-content .infoProvide {
+      position: relative;
+      margin: 10px auto;
+      width: 55%;
+      top: 0;
+      padding-left: 0px;
+    }
+    .section-mail .module .module-content .infoProvide .wrapper {
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .infoProvide:after {
+      content: "";
+      -webkit-clip-path: polygon(100% 0, 48% 100%, 100% 100%);
+      clip-path: polygon(100% 0, 2% 100%, 100% 100%);
+      position: absolute;
+      right: -188px;
+      top: 0px;
+      height: 455px;
+      width: 188px;
+      background: #1bcd8d;
+      transform: scaleX(-1);
+    }
+  }
+  @media only screen and (max-width: 479px) {
+    .section-mail .module .module-content .infoProvide {
+      width: 100%;
+      padding-left: 0px;
+    }
+    .section-mail .module .module-content .infoProvide h2,
+    .section-mail .module .module-content .infoProvide p {
+      padding-left: 15px;
+    }
+    .section-mail .module .module-content .infoProvide:before {
+      content: unset;
+    }
+    .section-mail .module .module-content .infoProvide:after {
+      content: unset;
+    }
+    .section-contact .module .module-content .address:before {
+      position: absolute;
+      background-image: url(./../../images/contactpage/location-icon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      content: '';
+      left: 50%;
+      transform: translateX(-50%);
+      top: -25px;
+    }
+    .section-contact .module .module-content .phone {
+      text-align: center;
+    }
+    .section-contact .module .module-content .phone:before {
+      position: absolute;
+      background-image: url(./../../images/contactpage/phone-icon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      width: 30px;
+      height: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -25px;
+    }
+    .section-contact .module .module-content .mail:before {
+      position: absolute;
+      content: '';
+      background-image: url(./../../images/contactpage/mail-icon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -25px;
+    }
+  }
+  

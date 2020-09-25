@@ -1,0 +1,648 @@
+extends ./layout
+
+block append content
+  .filter
+    main#main
+      section.section-banner
+        .bs-container
+          .bs-row
+            .bs-col
+              .module.module-banner
+                .module-header
+                  h2.title=sectionBanner.name
+                  p=sectionBanner.desc
+                  button XEM THEM
+      .filter
+        section.section-about
+          .bs-container
+            .bs-row
+              .bs-col
+                .module.module-about
+                  .module-content
+                    .bs-row.row-md-15
+                      .bs-col.md-50-15
+                        .img(data-aos='flip-left')
+                          img(src='/images/homepage/about-img.png')
+                      .bs-col.md-50-15
+                        .header(data-aos='flip-right')
+                          h2.title=sectionAbout.name
+                          p=sectionAbout.desc
+                          button XEM THEM
+                          span.effectTitle ABOUT US
+        section.section-activity
+          .bs-container
+            .bs-row
+              .bs-col
+                .module.module-activity
+                  .module-content
+                    .bs-row.row-lg-15
+                      .bs-col.lg-50-15
+                        .header(data-aos='fade-up', data-aos-easing='linear', data-aos-duration='4000')
+                          h2.title=sectionActivity.name
+                          .wrapper
+                            each item in sectionActivity.collections
+                              .box
+                                p.name=item.title
+                                p.desc=item.content
+                          span.effectTitle MARKET
+                      .bs-col.lg-50-15
+                        .img(data-aos='fade-down', data-aos-easing='linear', data-aos-duration='4000')
+                          .center
+                            img.city(src='/images/homepage/field-img/main_center.gif')
+                            .climb
+                              img.personal4(src='/images/homepage/field-img/main_personal4.gif', alt='')
+                              span
+                                img(src='/images/homepage/field-img/main_personal4_1.gif', alt='')
+                            .stand
+                              img.personal2(src='/images/homepage/field-img/main_personal2.gif', alt='')
+                              span
+                                img(src='/images/homepage/field-img/main_personal2_1.gif', alt='')
+                            .lay
+                              img.personal3(src='/images/homepage/field-img/main_personal3.gif', alt='')
+                              span
+                                img(src='/images/homepage/field-img/main_personal3_1.gif', alt='')
+                            .bitcoin
+                              img.layer5(src='/images/homepage/field-img/layer5.gif', alt='')
+                              span
+                                img(src='/images/homepage/field-img/layer5_1.gif', alt='')
+                            span.person
+                              img(src='/images/homepage/field-img/main_personal.gif', alt='')
+                            span.coin
+                              img(src='/images/homepage/field-img/coin.gif', alt='')
+                            span.tower1
+                              img(src='/images/homepage/field-img/tower1.gif', alt='')
+                            span.tower2
+                              img(src='/images/homepage/field-img/tower2.gif', alt='')
+                            span.tower3
+                              img(src='/images/homepage/field-img/tower3.gif', alt='')
+                            span.layer6
+                              img(src='/images/homepage/field-img/layer6.gif', alt='')
+                            span.home
+                              img(src='/images/homepage/field-img/home.gif', alt='')
+                            span.tree1
+                              img(src='/images/homepage/field-img/tree.gif', alt='')
+                            span.tree2
+                              img(src='/images/homepage/field-img/tree.gif', alt='')
+                            span.tree3
+                              img(src='/images/homepage/field-img/tree.gif', alt='')
+                          .round
+                            img.outer-round(src='/images/homepage/field-img/main_round.gif', alt='')
+                            .rotate
+                              span.blueprint.item1.bp-hover.crtl-rotate
+                                img(src='/images/homepage/field-img/layer4.gif', alt='')
+                              span.fix.item2.fx-hover.crtl-rotate
+                                img(src='/images/homepage/field-img/layer1.gif', alt='')
+                              span.construc.item3.ct-hover.crtl-rotate
+                                img(src='/images/homepage/field-img/layer3.gif', alt='')
+                              span.setting.item4.st-hover.crtl-rotate
+                                img(src='/images/homepage/field-img/layer2.gif', alt='')
+                            .transform
+                              .rotateLine
+                                span.blueprint
+                                  img(src='/images/homepage/field-img/line4.gif', alt='')
+                                span.fix
+                                  img(src='/images/homepage/field-img/line1.gif', alt='')
+                                span.construc
+                                  img(src='/images/homepage/field-img/line3.gif', alt='')
+                                span.setting
+                                  img(src='/images/homepage/field-img/line2.gif', alt='')
+      section.section-project
+        .bs-container
+          .bs-row
+            .bs-col
+              .module.module-project
+                .module-content
+                  .bs-tab
+                    .tab-container
+                      .tab-control(data-aos='zoom-out-right')
+                        h2=sectionProject.name
+                        ul.control-list
+                          - let count=0;
+                          while count<sectionProject.collections.length
+                            li.control-list__item(tab-show='#tab'+count+1)=sectionProject.collections[count].name
+                            - count++;
+                          //- li.control-list__item(tab-show='#tab2') THUONG MAI
+                          //- li.control-list__item(tab-show='#tab3') GIAO DUC
+                          //- li.control-list__item(tab-show='#tab4') BENH VIEN
+                          //- li.control-list__item(tab-show='#tab5') THUONG TRU
+                          //- li.control-list__item(tab-show='#tab6') VAN PHONG
+                          //- li.control-list__item(tab-show='#tab7') TAI THIET
+                      .tab-content(data-aos='zoom-out-left')
+                        //- - let count2=1;
+                        //-     while count2<sectionProject.collections.length+1
+                        //-       each item in sectionProject.collections[count2].items
+                        //-         #{'#tab'+count2 }.tab-item.active
+                        //-           .grpBtn
+                        //-             span#{'.prev'+count2}.prev
+                        //-               img(src='/images/homepage/arrow.png', alt='')
+                        //-             span#{'.next'+count2}.next
+                        //-               img(src='/images/homepage/arrow.png', alt='')
+                        //-           #{'.sliderImg'+count2}
+                        //-             .wrapper
+                        //-               .img
+                        //-                 img(src=item.images, alt='')
+                        //-               .desc
+                        //-                 p.building=item.title
+                        //-                 p.business=item.desc
+                        //-   - count2++;
+                        //- #tab1.tab-item.active
+                        //-   .grpBtn
+                        //-     span.prev.prev1
+                        //-       img(src='/images/homepage/arrow.png', alt='')
+                        //-     span.next.next1
+                        //-       img(src='/images/homepage/arrow.png', alt='')
+                        //-   .sliderImg1
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                        #tab2.tab-item
+                          .grpBtn
+                            span.prev.prev2
+                              img(src='/images/homepage/arrow.png', alt='')
+                            span.next.next2
+                              img(src='/images/homepage/arrow.png', alt='')
+                          .sliderImg2
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                        #tab3.tab-item
+                          .grpBtn
+                            span.prev.prev3
+                              img(src='/images/homepage/arrow.png', alt='')
+                            span.next.next3
+                              img(src='/images/homepage/arrow.png', alt='')
+                          .sliderImg3
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                        #tab4.tab-item
+                          .grpBtn
+                            span.prev.prev4
+                              img(src='/images/homepage/arrow.png', alt='')
+                            span.next.next4
+                              img(src='/images/homepage/arrow.png', alt='')
+                          .sliderImg4
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                        #tab5.tab-item
+                          .grpBtn
+                            span.prev.prev5
+                              img(src='/images/homepage/arrow.png', alt='')
+                            span.next.next5
+                              img(src='/images/homepage/arrow.png', alt='')
+                          .sliderImg5
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                        #tab6.tab-item
+                          .grpBtn
+                            span.prev.prev6
+                              img(src='/images/homepage/arrow.png', alt='')
+                            span.next.next6
+                              img(src='/images/homepage/arrow.png', alt='')
+                          .sliderImg6
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                        #tab7.tab-item
+                          .grpBtn
+                            span.prev.prev7
+                              img(src='/images/homepage/arrow.png', alt='')
+                            span.next.next7
+                              img(src='/images/homepage/arrow.png', alt='')
+                          .sliderImg7
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                            .wrapper
+                              .img
+                                img(src='/images/homepage/project-sample-img.png', alt='')
+                              .desc
+                                p.building TOA NHA THANH PHO
+                                p.business Thuongng mai
+                  span.effectTitle PROJECTS
+      section.section-recruit
+        .bs-container
+          .bs-row
+            .bs-col
+              .module.module-recruit
+                .module-content
+                  .bs-row.row-md-15
+                    .bs-col.md-50-15
+                      .img(data-aos='zoom-in-up')
+                        img.circle(src='/images/homepage/recruitment-img/main.gif', alt='')
+                        .main
+                          img.screen(src='/images/homepage/recruitment-img/layer2.gif', alt='')
+                          span.down
+                            img(src='/images/homepage/recruitment-img/layer2_1.gif', alt='')
+                          span.mainscreen
+                            img(src='/images/homepage/recruitment-img/layer2_2.gif', alt='')
+                          span.scscreen1
+                            img(src='/images/homepage/recruitment-img/layer2_3.gif', alt='')
+                          span.scscreen2
+                            img(src='/images/homepage/recruitment-img/layer2_3.gif', alt='')
+                          span.bgperson1
+                            img(src='/images/homepage/recruitment-img/5.gif', alt='')
+                          span.bgperson2
+                            img(src='/images/homepage/recruitment-img/5.gif', alt='')
+                          span.bgscreen1
+                            img(src='/images/homepage/recruitment-img/layer2_4.gif', alt='')
+                          span.bgscreen2
+                            img(src='/images/homepage/recruitment-img/layer2_4.gif', alt='')
+                          span.star1
+                            img(src='/images/homepage/recruitment-img/layer_2_star.gif', alt='')
+                          span.star2
+                            img(src='/images/homepage/recruitment-img/layer_2_star1.gif', alt='')
+                          span.star3
+                            img(src='/images/homepage/recruitment-img/layer_2_star2.gif', alt='')
+                          span.star4
+                            img(src='/images/homepage/recruitment-img/layer_2_star3.gif', alt='')
+                          span.star5
+                            img(src='/images/homepage/recruitment-img/layer_2_star4.gif', alt='')
+                        .bar2
+                          img.dark(src='/images/homepage/recruitment-img/layer1_5_1.gif', alt='')
+                          span.lg
+                            img(src='/images/homepage/recruitment-img/layer1_5_2.gif', alt='')
+                          span.md
+                            img(src='/images/homepage/recruitment-img/layer1_5_3.gif', alt='')
+                          span.sm
+                            img(src='/images/homepage/recruitment-img/layer1_5_4.gif', alt='')
+                        .bar
+                          img.dark(src='/images/homepage/recruitment-img/layer1_5_1.gif', alt='')
+                          span.lg
+                            img(src='/images/homepage/recruitment-img/layer1_5_2.gif', alt='')
+                          span.md
+                            img(src='/images/homepage/recruitment-img/layer1_5_3.gif', alt='')
+                          span.sm
+                            img(src='/images/homepage/recruitment-img/layer1_5_4.gif', alt='')
+                        .pillar
+                          img.basePillar(src='/images/homepage/recruitment-img/layer1_2.gif', alt='')
+                          span.stand
+                            img(src='/images/homepage/recruitment-img/layer1_1.gif', alt='')
+                          span.bg
+                            img(src='/images/homepage/recruitment-img/layer1.gif', alt='')
+                          span.circle1
+                            img(src='/images/homepage/recruitment-img/layer1_3.gif', alt='')
+                          span.circle2
+                            img(src='/images/homepage/recruitment-img/layer1_4.gif', alt='')
+                        .personal
+                          img.stand(src='/images/homepage/recruitment-img/main_personal_1.gif', alt='')
+                          span.person
+                            img(src='/images/homepage/recruitment-img/main_personal.gif', alt='')
+                          span.yes
+                            img(src='/images/homepage/recruitment-img/main_personal_2.gif', alt='')
+                        .base
+                          img.layermain1(src='/images/homepage/recruitment-img/layer_main.gif', alt='')
+                          span.layermain2
+                            img(src='/images/homepage/recruitment-img/layer_main.gif', alt='')
+                          span.layermain3
+                            img(src='/images/homepage/recruitment-img/layer_main.gif', alt='')
+                          span.layermain4
+                            img(src='/images/homepage/recruitment-img/layer_main.gif', alt='')
+                    .bs-col.md-50-15
+                      .header(data-aos='zoom-in-down')
+                        h2.title=sectionRecruit.name
+                        p=sectionRecruit.desc
+                        button NOP DON &gt;&gt;
+                        span.effectTitle RECRUITMENT
+      section.section-new
+        .bs-container
+          .bs-row
+            .bs-col
+              .module.module-new
+                .module-header
+                  h2.title=sectionNews.name
+                .module-content(data-aos='flip-left')
+                  .bs-row.row-md-15
+                    each item in sectionNews.collections
+                      .bs-col.md-33-15.sm-50-5
+                        .wrapper
+                          .img
+                            img(src=item.image)
+                          .desc
+                            .statistic
+                              p.time 5. december.2020
+                              p.views 328
+                            p.content=item.title
+                            button Xem thEm
+                  button.seeMore XEM TIEP
+                  span.effectTitle LATEST NEWS
+      section.section-partner
+        .module.module-partner
+          .module-content(data-aos='flip-up')
+            h2.title=sectionPartner.name
+            div.images
+              each item in sectionPartner.collections
+                .img
+                  img(src=item.item, alt='')
+              button.showMore &raquo;
