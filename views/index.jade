@@ -2,6 +2,7 @@ extends ./layout
 
 block append content
   .filter
+    include ./modules/header.jade
     main#main
       section.section-banner
         .bs-container
@@ -9,7 +10,7 @@ block append content
             .bs-col
               .module.module-banner
                 .module-header
-                  h2.title=sectionBanner.name
+                  h2.title=sectionBanner.title
                   p=sectionBanner.desc
                   button XEM THEM
       .filter
@@ -25,7 +26,7 @@ block append content
                           img(src='/images/homepage/about-img.png')
                       .bs-col.md-50-15
                         .header(data-aos='flip-right')
-                          h2.title=sectionAbout.name
+                          h2.title=sectionAbout.title
                           p=sectionAbout.desc
                           button XEM THEM
                           span.effectTitle ABOUT US
@@ -38,9 +39,9 @@ block append content
                     .bs-row.row-lg-15
                       .bs-col.lg-50-15
                         .header(data-aos='fade-up', data-aos-easing='linear', data-aos-duration='4000')
-                          h2.title=sectionActivity.name
+                          h2.title=sectionActivity.title
                           .wrapper
-                            each item in sectionActivity.collections
+                            each item in activity
                               .box
                                 p.name=item.title
                                 p.desc=item.content
@@ -115,421 +116,32 @@ block append content
                   .bs-tab
                     .tab-container
                       .tab-control(data-aos='zoom-out-right')
-                        h2=sectionProject.name
+                        h2=sectionProject.title
                         ul.control-list
                           - let count=0;
-                          while count<sectionProject.collections.length
-                            li.control-list__item(tab-show='#tab'+count+1)=sectionProject.collections[count].name
+                          while count<projects.length
+                            li.control-list__item(tab-show='#tab'+parseInt(count+1))=projects[count][0].type
                             - count++;
-                          //- li.control-list__item(tab-show='#tab2') THUONG MAI
-                          //- li.control-list__item(tab-show='#tab3') GIAO DUC
-                          //- li.control-list__item(tab-show='#tab4') BENH VIEN
-                          //- li.control-list__item(tab-show='#tab5') THUONG TRU
-                          //- li.control-list__item(tab-show='#tab6') VAN PHONG
-                          //- li.control-list__item(tab-show='#tab7') TAI THIET
                       .tab-content(data-aos='zoom-out-left')
-                        //- - let count2=1;
-                        //-     while count2<sectionProject.collections.length+1
-                        //-       each item in sectionProject.collections[count2].items
-                        //-         #{'#tab'+count2 }.tab-item.active
-                        //-           .grpBtn
-                        //-             span#{'.prev'+count2}.prev
-                        //-               img(src='/images/homepage/arrow.png', alt='')
-                        //-             span#{'.next'+count2}.next
-                        //-               img(src='/images/homepage/arrow.png', alt='')
-                        //-           #{'.sliderImg'+count2}
-                        //-             .wrapper
-                        //-               .img
-                        //-                 img(src=item.images, alt='')
-                        //-               .desc
-                        //-                 p.building=item.title
-                        //-                 p.business=item.desc
-                        //-   - count2++;
-                        //- #tab1.tab-item.active
-                        //-   .grpBtn
-                        //-     span.prev.prev1
-                        //-       img(src='/images/homepage/arrow.png', alt='')
-                        //-     span.next.next1
-                        //-       img(src='/images/homepage/arrow.png', alt='')
-                        //-   .sliderImg1
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                        #tab2.tab-item
-                          .grpBtn
-                            span.prev.prev2
-                              img(src='/images/homepage/arrow.png', alt='')
-                            span.next.next2
-                              img(src='/images/homepage/arrow.png', alt='')
-                          .sliderImg2
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                        #tab3.tab-item
-                          .grpBtn
-                            span.prev.prev3
-                              img(src='/images/homepage/arrow.png', alt='')
-                            span.next.next3
-                              img(src='/images/homepage/arrow.png', alt='')
-                          .sliderImg3
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                        #tab4.tab-item
-                          .grpBtn
-                            span.prev.prev4
-                              img(src='/images/homepage/arrow.png', alt='')
-                            span.next.next4
-                              img(src='/images/homepage/arrow.png', alt='')
-                          .sliderImg4
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                        #tab5.tab-item
-                          .grpBtn
-                            span.prev.prev5
-                              img(src='/images/homepage/arrow.png', alt='')
-                            span.next.next5
-                              img(src='/images/homepage/arrow.png', alt='')
-                          .sliderImg5
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                        #tab6.tab-item
-                          .grpBtn
-                            span.prev.prev6
-                              img(src='/images/homepage/arrow.png', alt='')
-                            span.next.next6
-                              img(src='/images/homepage/arrow.png', alt='')
-                          .sliderImg6
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                        #tab7.tab-item
-                          .grpBtn
-                            span.prev.prev7
-                              img(src='/images/homepage/arrow.png', alt='')
-                            span.next.next7
-                              img(src='/images/homepage/arrow.png', alt='')
-                          .sliderImg7
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
-                            .wrapper
-                              .img
-                                img(src='/images/homepage/project-sample-img.png', alt='')
-                              .desc
-                                p.building TOA NHA THANH PHO
-                                p.business Thuongng mai
+                        - count=0;
+                          while count<projects.length
+                            div(id="tab"+parseInt(count+1)).tab-item
+                              .grpBtn
+                                  span(class="prev"+parseInt(count+1)).prev
+                                    img(src='/images/homepage/arrow.png', alt='')
+                                  span(class="next"+parseInt(count+1)).next
+                                    img(src='/images/homepage/arrow.png', alt='')
+                              div(class="sliderImg"+parseInt(count+1))
+                                - let count2 = 0
+                                  while count2<projects[count].length
+                                    .wrapper
+                                      .img
+                                        img(src=projects[count][count2].image, alt='')
+                                      .desc
+                                        p.building=projects[count][count2].title
+                                        p.business=projects[count][count2].desc
+                                    - count2 ++;
+                            - count++;
                   span.effectTitle PROJECTS
       section.section-recruit
         .bs-container
@@ -621,10 +233,10 @@ block append content
             .bs-col
               .module.module-new
                 .module-header
-                  h2.title=sectionNews.name
+                  h2.title=sectionNews.title
                 .module-content(data-aos='flip-left')
                   .bs-row.row-md-15
-                    each item in sectionNews.collections
+                    each item in news
                       .bs-col.md-33-15.sm-50-5
                         .wrapper
                           .img
@@ -642,7 +254,15 @@ block append content
           .module-content(data-aos='flip-up')
             h2.title=sectionPartner.name
             div.images
-              each item in sectionPartner.collections
-                .img
-                  img(src=item.item, alt='')
+              .img
+                img(src='/images/homepage/vin.png', alt='')
+              .img
+                img(src='/images/homepage/vin.png', alt='')
+              .img
+                img(src='/images/homepage/vin.png', alt='')
+              .img
+                img(src='/images/homepage/vin.png', alt='')
+              .img
+                img(src='/images/homepage/vin.png', alt='')
               button.showMore &raquo;
+    include ./modules/footer.jade

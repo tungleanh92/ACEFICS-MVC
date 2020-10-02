@@ -1,6 +1,7 @@
 extends ./layout
 
 block append content
+  include ./modules/header-sc.jade
   main#main-contact
     .pageName
       p.page LIEN HE
@@ -35,3 +36,4 @@ block append content
                   input.phone(type='phone', placeholder='Số điện thoại')
                   textarea.content(placeholder='Nội dung ...')
                   button.sent GUI TIN
+  include ./modules/footer-sc.jade
