@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const _ = require('lodash');
 
 const passport = require('passport');
@@ -47,8 +46,6 @@ app.all('/', function (req, res, next) {
 
 app.use(cors());
 app.use(passport.initialize());
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser(process.env.SESSION_SECRET))
 
 // view engine setup
