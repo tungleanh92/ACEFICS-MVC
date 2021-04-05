@@ -5,7 +5,11 @@ var projectsSchema = new mongoose.Schema({
     section: String,
     title: String,
     desc: String,
-    image: String
+    image: String,
+    userId: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'User'
+    }
 })
 
 var Projects = mongoose.model('Projects', projectsSchema, 'projects-model')

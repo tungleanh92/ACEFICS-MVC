@@ -2,6 +2,7 @@ const Hdct = require('../models/hd-ct.model')
 const News = require('../models/news.model')
 const Projects = require('../models/projects.model')
 const Activity = require('../models/activity.model')
+const Partners = require('../models/partner.model')
 
 module.exports.home = async function (req, res, next) {
     const sectionBanner = await Hdct.findOne({ name: 'banner' }).exec();
@@ -15,6 +16,7 @@ module.exports.home = async function (req, res, next) {
     const news = await News.find({ section: 'news' }).exec();
     const projects = await Projects.find({ section: 'projects' })
     const activity = await Activity.find({ section: 'activity' })
+    const partners = await Partners.find();
     let filterdProjects = [[]];
     let k = 0
     for (let i = 0; i < projects.length; i++) {
@@ -36,6 +38,7 @@ module.exports.home = async function (req, res, next) {
         news: news,
         activity: activity,
         projects: filterdProjects,
+        partners: partners,
         sectionBanner: sectionBanner,
         sectionAbout: sectionAbout,
         sectionActivity: sectionActivity,

@@ -4,8 +4,8 @@ block append content
   include ./modules/header-sc.jade
   main#main-contact
     .pageName
-      p.page LIEN HE
-      p.location Trang chu / LiEn hE
+      p.page LIÊN HỆ
+      p.location Trang chủ / Liên hệ
     section.section-contact
       .bs-container
         .bs-row
@@ -27,13 +27,14 @@ block append content
               div(style='width: 100%')
                 iframe(width='100%', height='455', frameborder='0', scrolling='no', marginheight='0', marginwidth='0', src='https://maps.google.com/maps?width=100%25&height=455&hl=en&q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&t=&z=14&ie=UTF8&iwloc=B&output=embed')
               .infoProvide
-                h2.title LIEN HE
+                h2.title LIÊN HỆ
                 p Cung cấp thông tin để chúng tôi có thể hỗ trợ bạn
                 .wrapper
-                  input.name(type='text', placeholder='Họ và tên')
-                  input.group(type='text', placeholder='Tổ chức')
-                  input.email(type='email', placeholder='Email')
-                  input.phone(type='phone', placeholder='Số điện thoại')
-                  textarea.content(placeholder='Nội dung ...')
-                  button.sent GUI TIN
+                  form(action="/contacts", method="POST")
+                    input.name#name(type='text',name='name', placeholder='Họ và tên', required)
+                    input.group#organization(type='text',name='organization', placeholder='Tổ chức', required)
+                    input.email#email(type='email',name='email', placeholder='Email', required)
+                    input.phone#phone(type='phone',name='phone', placeholder='Số điện thoại', required)
+                    textarea.content#content(name='content', placeholder='Nội dung ...', required)
+                    button.sent#sent GỬI TIN 
   include ./modules/footer-sc.jade
