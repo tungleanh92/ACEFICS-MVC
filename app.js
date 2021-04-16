@@ -17,6 +17,7 @@ mongoose.connect(config.database, { useCreateIndex: true, useNewUrlParser: true,
 mongoose.set('useFindAndModify', false);
 const indexRouter = require('./routes/index');
 const contactRouter = require('./routes/contact');
+const loginRouter = require('./routes/login');
 
 const apiSignup = require('./api/routes/signup.route')
 const apiLogin = require('./api/routes/login.route')
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('uploads'));
 app.use('/', indexRouter);
 app.use('/contacts', contactRouter);
+app.use('/login', loginRouter);
 
 app.use('/api/signup', apiSignup);
 app.use('/api/login', apiLogin);
